@@ -14,7 +14,7 @@ export function LiveDashboard({
   children,
 }: {
   initialData: ApiData;
-  children?: (data: ApiData) => ReactNode;
+  children?: ReactNode;
 }) {
   const data = useLiveData(initialData);
   return (
@@ -22,7 +22,7 @@ export function LiveDashboard({
       <Header data={data} />
       <Hero data={data} />
       <StatCards data={data} />
-      {children?.(data)}
+      {children}
       <ComparisonTable data={data} />
       <FunStats data={data} />
     </>

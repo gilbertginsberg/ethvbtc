@@ -24,11 +24,9 @@ export default async function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <LiveDashboard initialData={initialData}>
-        {() => (
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <AdSlot slotId="in-content-1" />
-          </div>
-        )}
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <AdSlot slotId="in-content-1" />
+        </div>
       </LiveDashboard>
 
       <RatioChart />
