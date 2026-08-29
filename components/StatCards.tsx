@@ -1,8 +1,10 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { Line, LineChart, ResponsiveContainer } from "recharts";
 import type { ApiData, CoinMarketData } from "@/lib/types";
 import { formatPercent, formatUsd } from "@/lib/format";
+import { BitcoinIcon, EthereumIcon } from "./CoinIcon";
 
 function Sparkline({ prices, color }: { prices: number[]; color: string }) {
   const data = prices.map((p, i) => ({ i, p }));
@@ -20,13 +22,13 @@ function Sparkline({ prices, color }: { prices: number[]; color: string }) {
 function CoinCard({
   coin,
   accent,
-  accentSoft,
   name,
+  icon,
 }: {
   coin: CoinMarketData;
   accent: string;
-  accentSoft: string;
   name: string;
+  icon: ReactNode;
 }) {
   const up = coin.price_change_percentage_24h >= 0;
   return (
@@ -34,12 +36,7 @@ function CoinCard({
       <div className="flex items-start justify-between">
         <div>
           <div className="flex items-center gap-2">
-            <span
-              className="flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-medium"
-              style={{ background: accentSoft, color: accent }}
-            >
-              {coin.symbol.slice(0, 1).toUpperCase()}
-            </span>
+            {icon}
             <span className="text-sm text-muted">
               {name} · {coin.symbol.toUpperCase()}
             </span>
@@ -92,8 +89,8 @@ export function StatCards({ data }: { data: ApiData }) {
   return (
     <section className="mx-auto max-w-5xl px-5 py-6 sm:px-8">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <CoinCard coin={data.btc} accent="var(--color-btc)" accentSoft="var(--color-btc-soft)" name="Bitcoin" />
-        <CoinCard coin={data.eth} accent="var(--color-eth)" accentSoft="var(--color-eth-soft)" name="Ethereum" />
+        <CoinCard coin={data.btc} accent="var(--color-btc)" name="Bitcoin" icon={<BitcoinIcon size={22} />} />
+        <CoinCard coin={data.eth} accent="var(--color-eth)" name="Ethereum" icon={<EthereumIcon size={22} />} />
       </div>
     </section>
   );
