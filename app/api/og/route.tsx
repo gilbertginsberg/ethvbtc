@@ -23,19 +23,19 @@ export async function GET() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#f7f3ec",
-          color: "#1b1a17",
-          fontFamily: "serif",
+          background: "#ffffff",
+          color: "#202124",
+          fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, color: "#847d6c", textTransform: "uppercase" }}>
-          Today&apos;s reading
+        <div style={{ display: "flex", gap: 10, marginBottom: 20 }}>
+          <div style={{ display: "flex", width: 22, height: 22, borderRadius: 11, background: "#1a73e8" }} />
+          <div style={{ display: "flex", width: 22, height: 22, borderRadius: 11, background: "#ea4335" }} />
         </div>
-        <div style={{ display: "flex", fontSize: 180, fontStyle: "italic", marginTop: 12 }}>
-          {ratioPct}
-        </div>
-        <div style={{ display: "flex", fontSize: 26, marginTop: 14, color: "#0e8c74" }}>
-          ethvbtc.com — of Bitcoin&apos;s market cap is what Ethereum is worth
+        <div style={{ display: "flex", fontSize: 26, color: "#5f6368" }}>Market cap ratio</div>
+        <div style={{ display: "flex", fontSize: 170, fontWeight: 400, marginTop: 6 }}>{ratioPct}</div>
+        <div style={{ display: "flex", fontSize: 26, marginTop: 10, color: "#1a73e8" }}>
+          ethvbtc.com — live flippening tracker
         </div>
       </div>
     ),

@@ -14,7 +14,7 @@ export default async function Home() {
   } catch {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
-        <p className="font-serif text-lg italic text-ink-soft">
+        <p className="text-base text-muted">
           Live data is temporarily unavailable. Please check back shortly.
         </p>
       </div>

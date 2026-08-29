@@ -10,7 +10,7 @@ function Sparkline({ prices, color }: { prices: number[]; color: string }) {
     <div className="h-10 w-24 sm:w-28">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
-          <Line type="monotone" dataKey="p" stroke={color} strokeWidth={1.75} dot={false} />
+          <Line type="monotone" dataKey="p" stroke={color} strokeWidth={2} dot={false} />
         </LineChart>
       </ResponsiveContainer>
     </div>
@@ -30,21 +30,21 @@ function CoinCard({
 }) {
   const up = coin.price_change_percentage_24h >= 0;
   return (
-    <div
-      className="rounded-2xl border border-hairline bg-surface p-6"
-      style={{ borderTopColor: accent, borderTopWidth: 3 }}
-    >
+    <div className="elevation-hover rounded-2xl border border-border bg-surface p-6">
       <div className="flex items-start justify-between">
         <div>
-          <span
-            className="inline-block rounded-full px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide"
-            style={{ background: accentSoft, color: accent }}
-          >
-            {name} · {coin.symbol.toUpperCase()}
-          </span>
-          <div className="mt-2 font-serif text-3xl tabular sm:text-4xl">
-            {formatUsd(coin.current_price)}
+          <div className="flex items-center gap-2">
+            <span
+              className="flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-medium"
+              style={{ background: accentSoft, color: accent }}
+            >
+              {coin.symbol.slice(0, 1).toUpperCase()}
+            </span>
+            <span className="text-sm text-muted">
+              {name} · {coin.symbol.toUpperCase()}
+            </span>
           </div>
+          <div className="mt-2 text-3xl tabular sm:text-4xl">{formatUsd(coin.current_price)}</div>
           <div className={`mt-1 text-sm tabular ${up ? "text-up" : "text-down"}`}>
             {formatPercent(coin.price_change_percentage_24h)} today
           </div>
@@ -54,7 +54,7 @@ function CoinCard({
         )}
       </div>
 
-      <dl className="mt-5 grid grid-cols-2 gap-3 border-t border-hairline pt-4 text-xs">
+      <dl className="mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4 text-xs">
         <div>
           <dt className="text-muted">Market cap</dt>
           <dd className="tabular text-ink-soft">{formatUsd(coin.market_cap)}</dd>

@@ -15,7 +15,7 @@ export function AdSlot({ slotId, className = "", minHeight = 90, label = "Advert
     <div
       data-ad-slot={slotId}
       style={{ minHeight }}
-      className={`w-full flex items-center justify-center rounded-2xl border border-dashed border-hairline bg-surface/60 text-xs text-muted ${className}`}
+      className={`w-full flex items-center justify-center rounded-2xl border border-dashed border-border bg-surface-2/60 text-xs text-muted ${className}`}
     >
       {label}
     </div>

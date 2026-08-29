@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const FAQS = [
   {
     q: "What is the flippening?",
@@ -21,6 +25,30 @@ const FAQS = [
   },
 ];
 
+function FaqRow({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-border">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between gap-4 py-4 text-left"
+      >
+        <span className="text-sm text-ink-soft">{q}</span>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          className={`shrink-0 text-muted transition-transform ${open ? "rotate-180" : ""}`}
+        >
+          <path d="M5 8l5 5 5-5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && <p className="pb-4 text-sm leading-relaxed text-muted">{a}</p>}
+    </div>
+  );
+}
+
 export function Faq() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -34,16 +62,10 @@ export function Faq() {
 
   return (
     <section className="mx-auto max-w-5xl px-5 py-10 sm:px-8">
-      <p className="font-medium text-xs uppercase tracking-[0.2em] text-muted">
-        Background
-      </p>
-      <h2 className="mt-1 mb-6 font-serif text-2xl italic">Frequently asked</h2>
-      <div className="space-y-6">
+      <h2 className="mb-2 text-lg font-medium text-ink-soft">People also ask</h2>
+      <div className="rounded-2xl border border-border bg-surface px-5">
         {FAQS.map((f) => (
-          <div key={f.q} className="border-b border-hairline pb-6 last:border-0">
-            <h3 className="font-serif text-lg">{f.q}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">{f.a}</p>
-          </div>
+          <FaqRow key={f.q} q={f.q} a={f.a} />
         ))}
       </div>
       <script

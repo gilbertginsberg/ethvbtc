@@ -35,13 +35,12 @@ export function ComparisonTable({ data }: { data: ApiData }) {
   ];
 
   return (
-    <section className="mx-auto max-w-5xl px-5 py-10 sm:px-8">
-      <p className="font-medium text-xs uppercase tracking-[0.2em] text-muted">Side by side</p>
-      <h2 className="mt-1 mb-5 font-serif text-2xl italic">Head-to-head</h2>
-      <div className="overflow-x-auto rounded-2xl border border-hairline bg-surface">
+    <section className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
+      <h2 className="mb-4 text-lg font-medium text-ink-soft">Head-to-head</h2>
+      <div className="overflow-x-auto rounded-2xl border border-border bg-surface">
         <table className="w-full min-w-[480px] border-collapse text-left text-sm">
           <thead>
-            <tr className="border-b border-hairline text-xs uppercase tracking-wide text-muted">
+            <tr className="border-b border-border text-xs text-muted">
               <th className="px-5 py-3 font-medium">Metric</th>
               <th className="px-5 py-3 font-medium text-btc">Bitcoin</th>
               <th className="px-5 py-3 font-medium text-eth">Ethereum</th>
@@ -49,10 +48,7 @@ export function ComparisonTable({ data }: { data: ApiData }) {
           </thead>
           <tbody>
             {rows.map((row, i) => (
-              <tr
-                key={row.label}
-                className={i % 2 === 1 ? "bg-surface-2/40" : ""}
-              >
+              <tr key={row.label} className={i % 2 === 1 ? "bg-surface-2/60" : ""}>
                 <td className="px-5 py-3 text-muted">{row.label}</td>
                 <td className="px-5 py-3 tabular text-ink-soft">{row.btc}</td>
                 <td className="px-5 py-3 tabular text-ink-soft">{row.eth}</td>
