@@ -8,52 +8,54 @@ export function ComparisonTable({ data }: { data: ApiData }) {
 
   const rows: { label: string; btc: string; eth: string }[] = [
     { label: "Price", btc: formatUsd(btc.current_price), eth: formatUsd(eth.current_price) },
-    { label: "Market Cap", btc: formatUsd(btc.market_cap), eth: formatUsd(eth.market_cap) },
-    { label: "24h Volume", btc: formatUsd(btc.total_volume), eth: formatUsd(eth.total_volume) },
+    { label: "Market cap", btc: formatUsd(btc.market_cap), eth: formatUsd(eth.market_cap) },
+    { label: "24h volume", btc: formatUsd(btc.total_volume), eth: formatUsd(eth.total_volume) },
     {
-      label: "Circulating Supply",
+      label: "Circulating supply",
       btc: btc.circulating_supply.toLocaleString(undefined, { maximumFractionDigits: 0 }),
       eth: eth.circulating_supply.toLocaleString(undefined, { maximumFractionDigits: 0 }),
     },
     {
-      label: "Market Dominance",
+      label: "Market dominance",
       btc: btcDom !== undefined ? `${btcDom.toFixed(2)}%` : "—",
       eth: ethDom !== undefined ? `${ethDom.toFixed(2)}%` : "—",
     },
-    { label: "All-Time High", btc: formatUsd(btc.ath), eth: formatUsd(eth.ath) },
-    { label: "ATH Date", btc: formatDate(btc.ath_date), eth: formatDate(eth.ath_date) },
+    { label: "All-time high", btc: formatUsd(btc.ath), eth: formatUsd(eth.ath) },
+    { label: "ATH date", btc: formatDate(btc.ath_date), eth: formatDate(eth.ath_date) },
     {
-      label: "30D Change",
+      label: "30D change",
       btc: formatPercent(btc.price_change_percentage_30d_in_currency ?? 0),
       eth: formatPercent(eth.price_change_percentage_30d_in_currency ?? 0),
     },
     {
-      label: "1Y Change",
+      label: "1Y change",
       btc: formatPercent(btc.price_change_percentage_1y_in_currency ?? 0),
       eth: formatPercent(eth.price_change_percentage_1y_in_currency ?? 0),
     },
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-      <h2 className="mb-4 font-mono text-sm uppercase tracking-widest text-muted">
-        Head-to-Head Comparison
-      </h2>
-      <div className="overflow-x-auto rounded-xl border border-surface-border">
+    <section className="mx-auto max-w-5xl px-5 py-10 sm:px-8">
+      <p className="font-medium text-xs uppercase tracking-[0.2em] text-muted">Side by side</p>
+      <h2 className="mt-1 mb-5 font-serif text-2xl italic">Head-to-head</h2>
+      <div className="overflow-x-auto rounded-2xl border border-hairline bg-surface">
         <table className="w-full min-w-[480px] border-collapse text-left text-sm">
           <thead>
-            <tr className="border-b border-surface-border bg-surface font-mono text-xs uppercase text-muted">
-              <th className="px-4 py-3 font-medium">Metric</th>
-              <th className="px-4 py-3 font-medium text-btc">Bitcoin</th>
-              <th className="px-4 py-3 font-medium text-eth">Ethereum</th>
+            <tr className="border-b border-hairline text-xs uppercase tracking-wide text-muted">
+              <th className="px-5 py-3 font-medium">Metric</th>
+              <th className="px-5 py-3 font-medium text-btc">Bitcoin</th>
+              <th className="px-5 py-3 font-medium text-eth">Ethereum</th>
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
-              <tr key={row.label} className="border-b border-surface-border last:border-0">
-                <td className="px-4 py-3 text-muted">{row.label}</td>
-                <td className="px-4 py-3 font-mono tabular">{row.btc}</td>
-                <td className="px-4 py-3 font-mono tabular">{row.eth}</td>
+            {rows.map((row, i) => (
+              <tr
+                key={row.label}
+                className={i % 2 === 1 ? "bg-surface-2/40" : ""}
+              >
+                <td className="px-5 py-3 text-muted">{row.label}</td>
+                <td className="px-5 py-3 tabular text-ink-soft">{row.btc}</td>
+                <td className="px-5 py-3 tabular text-ink-soft">{row.eth}</td>
               </tr>
             ))}
           </tbody>

@@ -1,36 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0f;
-  --surface: #12121a;
-  --surface-border: #23232f;
-  --foreground: #f2f2f5;
-  --muted: #8b8b99;
-  --btc: #f7931a;
-  --eth: #627eea;
-  --up: #22c55e;
-  --down: #ef4444;
+  --paper: #f7f3ec;
+  --surface: #fffdf9;
+  --surface-2: #f0eadd;
+  --ink: #1b1a17;
+  --ink-soft: #423e35;
+  --muted: #847d6c;
+  --hairline: #e3dccb;
+  --btc: #c1502e;
+  --btc-soft: #f3ddd3;
+  --eth: #0e8c74;
+  --eth-soft: #d9ece6;
+  --accent: #d8a32b;
+  --up: #0e8c74;
+  --down: #c1502e;
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-paper: var(--paper);
   --color-surface: var(--surface);
-  --color-surface-border: var(--surface-border);
-  --color-foreground: var(--foreground);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
   --color-muted: var(--muted);
+  --color-hairline: var(--hairline);
   --color-btc: var(--btc);
+  --color-btc-soft: var(--btc-soft);
   --color-eth: var(--eth);
+  --color-eth-soft: var(--eth-soft);
+  --color-accent: var(--accent);
   --color-up: var(--up);
   --color-down: var(--down);
+  --font-serif: var(--font-fraunces);
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--ink);
+  background-image: radial-gradient(circle at 1px 1px, rgba(27, 26, 23, 0.05) 1px, transparent 0);
+  background-size: 22px 22px;
 }
 
 .tabular {
   font-variant-numeric: tabular-nums;
+}
+
+.hairline {
+  border-color: var(--hairline);
 }

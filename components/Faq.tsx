@@ -33,15 +33,16 @@ export function Faq() {
   };
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <h2 className="mb-6 font-mono text-sm uppercase tracking-widest text-muted">
-        Frequently Asked Questions
-      </h2>
+    <section className="mx-auto max-w-5xl px-5 py-10 sm:px-8">
+      <p className="font-medium text-xs uppercase tracking-[0.2em] text-muted">
+        Background
+      </p>
+      <h2 className="mt-1 mb-6 font-serif text-2xl italic">Frequently asked</h2>
       <div className="space-y-6">
         {FAQS.map((f) => (
-          <div key={f.q} className="border-b border-surface-border pb-6 last:border-0">
-            <h3 className="font-semibold">{f.q}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">{f.a}</p>
+          <div key={f.q} className="border-b border-hairline pb-6 last:border-0">
+            <h3 className="font-serif text-lg">{f.q}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-ink-soft">{f.a}</p>
           </div>
         ))}
       </div>

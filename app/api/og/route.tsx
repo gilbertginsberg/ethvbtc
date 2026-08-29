@@ -23,19 +23,19 @@ export async function GET() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0a0a0f",
-          color: "#f2f2f5",
-          fontFamily: "sans-serif",
+          background: "#f7f3ec",
+          color: "#1b1a17",
+          fontFamily: "serif",
         }}
       >
-        <div style={{ display: "flex", fontSize: 32, letterSpacing: 4, color: "#8b8b99" }}>
-          MARKET CAP RATIO · ETH / BTC
+        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, color: "#847d6c", textTransform: "uppercase" }}>
+          Today&apos;s reading
         </div>
-        <div style={{ display: "flex", fontSize: 160, fontWeight: 700, marginTop: 20 }}>
+        <div style={{ display: "flex", fontSize: 180, fontStyle: "italic", marginTop: 12 }}>
           {ratioPct}
         </div>
-        <div style={{ display: "flex", fontSize: 28, marginTop: 10, color: "#627eea" }}>
-          ethvbtc.com — Live Flippening Tracker
+        <div style={{ display: "flex", fontSize: 26, marginTop: 14, color: "#0e8c74" }}>
+          ethvbtc.com — of Bitcoin&apos;s market cap is what Ethereum is worth
         </div>
       </div>
     ),
