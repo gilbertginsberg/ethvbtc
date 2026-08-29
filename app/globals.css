@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f8f9fa;
+  --ink: #202124;
+  --ink-soft: #3c4043;
+  --muted: #5f6368;
+  --border: #dadce0;
+  --btc: #ea4335;
+  --btc-soft: #fce8e6;
+  --eth: #1a73e8;
+  --eth-soft: #e8f0fe;
+  --accent: #fbbc05;
+  --up: #188038;
+  --down: #d93025;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-btc: var(--btc);
+  --color-btc-soft: var(--btc-soft);
+  --color-eth: var(--eth);
+  --color-eth-soft: var(--eth-soft);
+  --color-accent: var(--accent);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --font-sans: var(--font-roboto);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.elevation-1 {
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.elevation-hover {
+  transition: box-shadow 0.15s ease;
+}
+.elevation-hover:hover {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+}
+
+.legal-prose h2 {
+  color: var(--ink);
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+}
+
+.legal-prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.legal-prose a {
+  color: var(--eth);
+}
+.legal-prose a:hover {
+  text-decoration: underline;
+}
