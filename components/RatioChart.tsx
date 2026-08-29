@@ -71,7 +71,7 @@ export function RatioChart() {
   return (
     <section className="mx-auto max-w-5xl px-5 py-8 sm:px-8">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-lg font-medium text-ink-soft">Interest over time</h2>
+        <h2 className="text-lg font-medium text-ink-soft">Ratio over time</h2>
         <div className="flex gap-1 rounded-full border border-border p-1">
           {RANGES.map((r) => (
             <button
