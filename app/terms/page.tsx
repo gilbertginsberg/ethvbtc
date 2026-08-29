@@ -4,6 +4,9 @@ import { LegalPage } from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: "Terms of Service — ETH vs BTC",
   description: "Terms governing use of ethvbtc.com.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsOfService() {

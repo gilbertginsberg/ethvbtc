@@ -4,6 +4,9 @@ import { LegalPage } from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: "Privacy Policy — ETH vs BTC",
   description: "How ethvbtc.com collects, uses, and protects information.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPolicy() {

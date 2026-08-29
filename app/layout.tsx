@@ -18,6 +18,27 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ethvbtc.com"),
   title,
   description,
+  keywords: [
+    "eth vs btc",
+    "flippening",
+    "ethereum market cap vs bitcoin",
+    "eth btc ratio",
+    "flippening tracker",
+    "crypto market cap ratio",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title,
     description,
@@ -34,12 +55,29 @@ export const metadata: Metadata = {
   },
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "ETH vs BTC",
+  url: "https://ethvbtc.com",
+  description,
+  publisher: {
+    "@type": "Organization",
+    name: "ETH vs BTC",
+    url: "https://ethvbtc.com",
+  },
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${roboto.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-bg text-ink font-sans">
         {children}
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
       </body>
       <Script id="matomo-analytics" strategy="beforeInteractive">
         {`
